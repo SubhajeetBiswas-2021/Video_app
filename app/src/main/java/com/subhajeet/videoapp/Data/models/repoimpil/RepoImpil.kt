@@ -26,7 +26,7 @@ class RepoImpil  : Repo {
 
         val Uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
 
-        val memoryCursor = application.contentResolver.query(Uri,projection,null,null,MediaStore.Video.Media.DATE_ADDED + "DESC")
+        val memoryCursor = application.contentResolver.query(Uri,projection,null,null,MediaStore.Video.Media.DATE_ADDED + " DESC")
 
         if(memoryCursor != null && memoryCursor.count >0){
             while (memoryCursor.moveToNext()){
