@@ -14,11 +14,15 @@ import javax.inject.Inject
 @HiltViewModel
 class MyViewModel @Inject constructor(private val getAllVideosUseCase: GetAllVideosUseCase , val application: Application) : ViewModel() {
 
+    val videosList = MutableStateFlow(emptyList<VideoModels>())
 
     init {
         loadAllVideos()
     }
-    val videosList = MutableStateFlow<List<VideoModels>>(emptyList())
+    //val videosList = MutableStateFlow<List<VideoModels>>(emptyList())
+
+
+
     fun loadAllVideos(){
         viewModelScope.launch {
             getAllVideosUseCase.getAllVideosUserCase(application)
